@@ -1,0 +1,32 @@
+:root {
+  --brand-blue: #0952b2;
+  --brand-yellow: #fff21f;
+  --brand-dark: #111111;
+  --brand-white: #ffffff;
+  --color-background: var(--brand-blue);
+  --color-foreground: var(--brand-white);
+  --color-muted: color-mix(in srgb, var(--brand-white) 75%, transparent);
+  --color-rule: color-mix(in srgb, var(--brand-white) 25%, transparent);
+  --font-body: "Manrope Variable", Arial, Helvetica, sans-serif;
+  --font-label: "Oswald Variable", "Arial Narrow", sans-serif;
+  --font-editorial: "Bodoni Moda Variable", Georgia, serif;
+  --color-deep: color-mix(in srgb, var(--brand-blue) 25%, var(--brand-dark));
+  --color-blue-dark: color-mix(
+    in srgb,
+    var(--brand-blue) 65%,
+    var(--brand-dark)
+  );
+  --header-height: 5.5rem;
+  --page-gutter: clamp(1.25rem, 5vw, 6rem);
+  --content-width: 90rem;
+  --duration-fast: 180ms;
+}
+
+@theme inline {
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-white: var(--brand-white);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-label);
+}
