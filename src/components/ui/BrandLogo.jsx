@@ -8,7 +8,7 @@ export default function BrandLogo({ priority = false }) {
       alt={site.logo.alt}
       width={site.logo.width}
       height={site.logo.height}
-      sizes="76px"
+      sizes="(max-width: 760px) 32px, 40px"
       priority={priority}
       className="logo-image"
     />

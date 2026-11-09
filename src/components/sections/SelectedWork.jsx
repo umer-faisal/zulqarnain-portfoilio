@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { projects } from "@/data/projects";
+import ReelsCarousel from "@/components/ui/ReelsCarousel";
 
 export default function SelectedWork() {
   const [selected, setSelected] = useState(null);
   const dialog = useRef(null);
+
   useEffect(() => {
     if (!selected) return;
     const element = dialog.current;
@@ -18,6 +20,7 @@ export default function SelectedWork() {
       document.body.style.overflow = previous;
     };
   }, [selected]);
+
   return (
     <section
       id="work"
@@ -36,9 +39,13 @@ export default function SelectedWork() {
           Films, photographs and the stories in between.
           <br />A closer look at the world through our lens.
         </p>
-        <span className="label">A Z.S Productions collection</span>
+        <span className="label">A ZS.Productions collection</span>
       </div>
-      {projects.length ? (
+
+      {/* Instagram Live Reels Carousel */}
+      <ReelsCarousel />
+
+      {projects.length > 0 && (
         <div className="project-grid">
           {projects.map((project) => (
             <button
@@ -63,23 +70,8 @@ export default function SelectedWork() {
             </button>
           ))}
         </div>
-      ) : (
-        <div className="archive-preview" data-reveal>
-          <div className="archive-frame">
-            <span className="label">The moving image / 01</span>
-            <span className="archive-word">Films.</span>
-            <span className="label">Stories in motion</span>
-          </div>
-          <div className="archive-frame still-frame">
-            <span className="label">The still image / 02</span>
-            <span className="archive-word">Stills.</span>
-            <span className="label">A moment, held</span>
-          </div>
-          <p className="archive-note label">
-            The collection is being prepared. Watch this space.
-          </p>
-        </div>
       )}
+
       <dialog
         ref={dialog}
         className="project-dialog"

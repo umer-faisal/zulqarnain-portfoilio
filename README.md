@@ -1,4 +1,4 @@
-# Z.S Productions
+# ZS.Productions
 
 A single-page, statically exported production-studio website. Built in the existing workspace with Next.js App Router, JavaScript, Tailwind CSS, and GSAP/ScrollTrigger.
 

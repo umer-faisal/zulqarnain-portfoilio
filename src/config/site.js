@@ -1,7 +1,7 @@
 export const site = {
-  name: "Z.S Productions",
+  name: "ZS.Productions",
   description:
-    "Z.S Productions is a creative video and photography production studio. From the first idea to the final frame: shoot, edit, create.",
+    "ZS.Productions is a creative video and photography production studio. From the first idea to the final frame: shoot, edit, create.",
   tagline: "Shoot. Edit. Create.",
   email: null,
   socials: [
@@ -27,8 +27,8 @@ export const site = {
   },
   logo: {
     src: "/images/zs-productions-logo.png",
-    width: 1600,
-    height: 1426,
-    alt: "Z.S Productions — yellow camera lens emblem on a blue background",
+    width: 724,
+    height: 724,
+    alt: "ZS.Productions — yellow camera lens emblem",
   },
 };

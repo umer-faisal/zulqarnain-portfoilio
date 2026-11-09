@@ -51,9 +51,9 @@ export default function SiteHeader() {
   };
   return (
     <header className="site-header">
-      <a href="#home" className="wordmark" aria-label="Z.S Productions home" onClick={() => setOpen(false)}>
+      <a href="#home" className="wordmark" aria-label="ZS.Productions home" onClick={() => setOpen(false)}>
         <BrandLogo priority />
-        <span>Z.S Productions</span>
+        <span>ZS.Productions</span>
       </a>
       <span className="studio-badge">
         <span /> Shoot. Edit. Create.

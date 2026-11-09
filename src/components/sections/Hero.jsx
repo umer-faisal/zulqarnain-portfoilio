@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="hero-name" data-hero>
         <span className="frame-corner corner-tl" aria-hidden="true" />
         <span className="frame-corner corner-tr" aria-hidden="true" />
-        <h1 id="hero-title">Z.S Productions</h1>
+        <h1 id="hero-title">ZS.Productions</h1>
         <span className="frame-corner corner-bl" aria-hidden="true" />
         <span className="frame-corner corner-br" aria-hidden="true" />
       </div>
