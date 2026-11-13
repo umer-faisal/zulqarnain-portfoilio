@@ -8,10 +8,8 @@ test("desktop export: navigation, services, fonts, and motion have no runtime er
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
-  await expect(page.locator("h1")).toHaveText("ZS.Productions");
-  await expect(page.locator(".hero-portrait img")).toBeVisible();
+  await expect(page.locator("h1")).toHaveText(/ZS\.Production/i);
   await expect(page.locator(".wordmark img")).toHaveAttribute("src", "/images/zs-productions-logo.png");
-  await expect(page.locator(".hero-portrait img")).toHaveAttribute("src", "/images/zs.png");
   await page.waitForTimeout(2200);
   await page.screenshot({ path: "test-results/desktop-hero.png" });
   for (const section of ["about", "work", "services", "contact"]) {

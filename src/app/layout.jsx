@@ -46,9 +46,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <a href="#main-content" className="skip-link">
+    <html lang="en" className="scroll-smooth">
+      <body className="m-0 bg-brand-deep text-brand-white font-body leading-relaxed antialiased">
+        <a
+          href="#main-content"
+          className="skip-link fixed top-4 left-4 z-[110] px-4 py-3 bg-brand-yellow text-brand-dark font-label text-sm uppercase -translate-y-[200%] focus:translate-y-0 transition-transform duration-200"
+        >
           Skip to content
         </a>
         {children}

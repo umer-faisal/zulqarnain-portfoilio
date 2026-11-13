@@ -68,16 +68,18 @@ export default function StudioMotion() {
             },
           });
         });
-        gsap.to(".hero-portrait", {
-          y: 65,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-          },
-        });
+        if (document.querySelector(".hero-portrait")) {
+          gsap.to(".hero-portrait", {
+            y: 65,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hero",
+              start: "top top",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
+        }
       },
     );
     const refresh = () => ScrollTrigger.refresh();
