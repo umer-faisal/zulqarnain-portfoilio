@@ -10,6 +10,7 @@
   --font-body: "Manrope Variable", Arial, Helvetica, sans-serif;
   --font-label: "Oswald Variable", "Arial Narrow", sans-serif;
   --font-editorial: "Bodoni Moda Variable", Georgia, serif;
+  --font-japanese: "Japanese 3017", sans-serif;
   --color-deep: #0f1e36;
   --color-blue-dark: #0c3873;
   --header-height: 5.5rem;
@@ -28,4 +29,5 @@
   --font-body: "Manrope Variable", Arial, Helvetica, sans-serif;
   --font-label: "Oswald Variable", "Arial Narrow", sans-serif;
   --font-editorial: "Bodoni Moda Variable", Georgia, serif;
+  --font-japanese: "Japanese 3017", sans-serif;
 }

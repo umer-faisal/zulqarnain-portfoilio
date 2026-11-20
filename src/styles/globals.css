@@ -5,6 +5,18 @@
 @import "@fontsource-variable/bodoni-moda";
 @import "./tokens.css";
 
+@font-face {
+  font-family: "Japanese 3017";
+  src: url("/fonts/Japanese3017.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-japanese {
+  font-family: "Japanese 3017", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
