@@ -4,6 +4,8 @@ export const site = {
     "ZS.Productions is a creative video and photography production studio. From the first idea to the final frame: shoot, edit, create.",
   tagline: "Shoot. Edit. Create.",
   email: null,
+  whatsapp:
+    "https://wa.me/923061060224?text=Hi%20Zulqarnain%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20ZS.Productions.",
   socials: [
     {
       label: "LinkedIn",

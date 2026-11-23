@@ -10,7 +10,7 @@ export default function BrandLogo({ priority = false }) {
       height={site.logo.height}
       sizes="(max-width: 760px) 32px, 40px"
       priority={priority}
-      className="logo-image w-8 h-8 md:w-[2.375rem] md:h-[2.375rem] rounded-full object-cover shrink-0 block"
+      className="logo-image w-8 h-8 md:w-9.5 md:h-9.5 rounded-full object-cover shrink-0 block"
     />
   );
 }

@@ -1,54 +1,71 @@
 import Scribble from "@/components/ui/Scribble";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function Introduction() {
   return (
-    <>
-      <section
-        id="about"
-        className="statement stories-statement relative min-h-[75svh] md:min-h-[calc(100svh-5.5rem)] px-5 py-20 md:py-24 flex flex-col items-center justify-center text-center bg-brand-blue text-brand-white"
-        tabIndex={-1}
-        aria-labelledby="stories-title"
-      >
-        <span className="section-index absolute top-6 left-5 md:top-8 md:left-8 font-label text-xs md:text-sm uppercase tracking-wider text-brand-white/80">
-          01 / The studio
+    <section
+      id="about"
+      className="statement stories-statement relative min-h-[75svh] md:min-h-[calc(100svh-5.5rem)] px-5 sm:px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-[#0052B4] text-white"
+      tabIndex={-1}
+      aria-labelledby="about-title"
+    >
+      <ScrollReveal delay={0}>
+        <span className="section-index absolute top-6 left-5 md:top-8 md:left-8 font-label text-xs md:text-sm uppercase tracking-wider text-white/80">
+          01 / About
         </span>
-        <div>
-          <p className="statement-lead font-label text-lg sm:text-2xl md:text-[clamp(1.5rem,2.5vw,3rem)] leading-snug uppercase tracking-wider mb-2" data-reveal>
-            We create
+      </ScrollReveal>
+
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
+        {/* Top Eyebrow */}
+        <ScrollReveal delay={0}>
+          <p className="statement-lead font-label text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-white/90 font-medium mb-2 sm:mb-3">
+            ABOUT ME
           </p>
+        </ScrollReveal>
+
+        {/* Main Display Headline */}
+        <ScrollReveal delay={100}>
           <h2
-            id="stories-title"
-            className="mega font-label font-bold text-[22vw] md:text-[clamp(5rem,20vw,24rem)] leading-[0.95] md:leading-[1.12] uppercase tracking-tighter m-0"
-            data-reveal
+            id="about-title"
+            className="mega font-label font-bold text-[clamp(2.2rem,8.5vw,7.5rem)] leading-[0.95] uppercase tracking-tight text-white m-0 text-center"
           >
-            Stories.
+            <span className="inline-block">ZULQARNAIN</span>{" "}
+            <span className="inline-block">SAYA.</span>
           </h2>
-        </div>
-        <p className="section-copy font-label font-light text-base md:text-[clamp(1.05rem,1.5vw,1.6rem)] leading-relaxed max-w-[43rem] mx-auto mt-8 md:mt-12 text-brand-white/90" data-reveal>
-          An idea becomes a shot. A shot becomes a sequence.
-          <br className="hidden md:inline" /> A sequence becomes a story that stays with you.
-        </p>
-      </section>
-      <section
-        className="statement craft-statement relative min-h-[65svh] md:min-h-[calc(100svh-5.5rem)] px-5 py-20 md:py-24 flex flex-col items-center justify-center text-center bg-brand-deep text-brand-white"
-        aria-labelledby="craft-title"
-      >
-        <div data-reveal className="w-full max-w-4xl mx-auto flex flex-col items-center">
-          <p className="font-label text-xs md:text-sm uppercase tracking-wider text-brand-white/80 mb-2">
-            One studio. From start to finish.
+        </ScrollReveal>
+
+        {/* Yellow Wave Divider */}
+        <ScrollReveal delay={150}>
+          <Scribble className="my-4! sm:my-6!" />
+        </ScrollReveal>
+
+        {/* About Bio Block */}
+        <ScrollReveal delay={200}>
+          <p className="section-copy font-body font-normal text-sm sm:text-base md:text-[1.05rem] leading-relaxed text-white/90 max-w-2xl mx-auto mt-2">
+            I am Zulqarnain Saya, a filmmaker, videographer, and editor behind
+            ZS.Productions. From planning the first frame to the final cut, I focus
+            on capturing real moments and turning them into visuals that actually
+            make people feel something. Whether it is brand films, event coverage,
+            or short-form reels, every project is built with intent, rhythm, and
+            clean storytelling.
           </p>
-          <h2
-            id="craft-title"
-            className="editorial-display font-editorial font-normal text-[12vw] md:text-[clamp(3rem,9.3vw,11rem)] leading-tight tracking-tight my-4 md:my-6"
-          >
-            Shoot. Edit. Create.
-          </h2>
-          <Scribble />
-          <p className="statement-lead font-label text-base sm:text-xl md:text-[clamp(1.25rem,2.5vw,2.7rem)] text-brand-yellow uppercase tracking-wider mt-4">
-            Always curious. Always creating.
-          </p>
-        </div>
-      </section>
-    </>
+        </ScrollReveal>
+
+        {/* Highlight Pills */}
+        <ScrollReveal delay={250}>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 max-w-2xl mx-auto">
+            <span className="inline-flex items-center border border-white/25 rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-label tracking-wide text-white/90 bg-white/5">
+              Direction &amp; Cinematography
+            </span>
+            <span className="inline-flex items-center border border-white/25 rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-label tracking-wide text-white/90 bg-white/5">
+              Video Editing &amp; Color
+            </span>
+            <span className="inline-flex items-center border border-white/25 rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-label tracking-wide text-white/90 bg-white/5">
+              Brand &amp; Event Films
+            </span>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
   );
 }

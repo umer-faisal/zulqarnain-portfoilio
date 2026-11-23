@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { reels, extractInstagramId } from "@/data/reels";
 
@@ -116,18 +117,35 @@ export default function ReelsCarousel() {
       </div>
 
       {/* Horizontal Carousel Track */}
-      <div className="reels-track flex gap-6 overflow-x-auto snap-x snap-mandatory py-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" ref={trackRef} tabIndex={0} aria-label="Reels list">
+      <div className="reels-track flex gap-6 overflow-x-auto snap-x snap-mandatory py-2 pb-6 scrollbar-none [&::-webkit-scrollbar]:hidden" ref={trackRef} tabIndex={0} aria-label="Reels list">
         {displayReels.map((reel, index) => {
           const reelIndex = (index % reels.length) + 1;
           return (
             <button
               key={`${reel.id}-${index}`}
               type="button"
-              className="reel-card shrink-0 basis-[clamp(240px,75vw,290px)] md:basis-[clamp(260px,26vw,320px)] aspect-[9/15] snap-start rounded-2xl border border-brand-dark overflow-hidden text-left cursor-pointer p-0 flex flex-col bg-brand-deep text-brand-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-brand-blue group"
+              className="reel-card shrink-0 basis-[clamp(240px,75vw,290px)] md:basis-[clamp(260px,26vw,320px)] aspect-9/16 snap-start rounded-2xl border border-brand-dark overflow-hidden text-left cursor-pointer p-0 flex flex-col bg-neutral-900 text-brand-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-brand-blue relative group"
               onClick={() => openReel(reel)}
               aria-label={`Play reel: ${reel.title}`}
             >
-              <div className="reel-card-inner relative w-full h-full p-6 flex flex-col justify-between bg-gradient-to-b from-[#141414]/85 to-[#0a0a0a]/98">
+              {/* Full-bleed thumbnail image with dark fallback */}
+              {reel.thumbnail && (
+                <Image
+                  src={reel.thumbnail}
+                  alt={reel.title}
+                  fill
+                  sizes="(max-width: 760px) 75vw, 320px"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 pointer-events-none select-none z-0"
+                />
+              )}
+
+              {/* Top-and-bottom dark gradient overlay for legibility */}
+              <div
+                className="absolute inset-0 bg-linear-to-b from-black/75 via-black/15 to-black/80 pointer-events-none z-1"
+                aria-hidden="true"
+              />
+
+              <div className="reel-card-inner relative w-full h-full p-6 flex flex-col justify-between z-10">
                 {/* Decorative camera frame corners */}
                 <span className="frame-corner corner-tl" aria-hidden="true" />
                 <span className="frame-corner corner-tr" aria-hidden="true" />
@@ -139,32 +157,41 @@ export default function ReelsCarousel() {
                   <span className="reel-index text-brand-yellow font-label text-xs tracking-wider">
                     {String(reelIndex).padStart(2, "0")} {"//"} REEL
                   </span>
-                  <span className="reel-pill font-label text-[0.62rem] tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-brand-white border border-white/15">INSTAGRAM</span>
+                  <span className="reel-pill font-label text-[0.62rem] tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-brand-white border border-white/15">
+                    INSTAGRAM
+                  </span>
                 </div>
 
                 {/* Center visual with Play button */}
                 <div className="reel-card-center flex flex-col items-center justify-center gap-3 relative z-10 my-auto">
-                  <div className="play-trigger w-16 h-16 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:ring-8 group-hover:ring-yellow-400/20" aria-hidden="true">
+                  <div
+                    className="play-trigger w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm border border-white/25 text-brand-yellow flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:bg-black/70 group-hover:border-brand-yellow/60 group-hover:ring-8 group-hover:ring-yellow-400/20"
+                    aria-hidden="true"
+                  >
                     <svg
                       viewBox="0 0 24 24"
-                      fill="none"
-                      className="play-icon w-6 h-6 ml-0.5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      fill="currentColor"
+                      className="play-icon w-6 h-6 ml-1 text-brand-yellow"
                     >
-                      <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
+                      <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                   </div>
-                  <span className="watch-cue font-label text-[0.7rem] text-white/70 uppercase tracking-wider group-hover:text-brand-white transition-colors">Tap to watch</span>
+                  <span className="watch-cue font-label text-[0.7rem] text-white/80 uppercase tracking-wider group-hover:text-brand-yellow transition-colors">
+                    Tap to watch
+                  </span>
                 </div>
 
                 {/* Bottom card info */}
                 <div className="reel-card-bottom relative z-10">
-                  <span className="reel-category font-label text-[0.68rem] text-white/70 uppercase tracking-wide block mb-1">{reel.category}</span>
-                  <h3 className="reel-title font-label text-lg leading-snug uppercase tracking-wide text-brand-white mb-1.5">{reel.title}</h3>
-                  <p className="reel-desc text-xs text-white/70 leading-relaxed line-clamp-2 m-0">{reel.description}</p>
+                  <span className="reel-category font-label text-[0.68rem] text-white/75 uppercase tracking-wide block mb-1">
+                    {reel.category}
+                  </span>
+                  <h3 className="reel-title font-label text-lg leading-snug uppercase tracking-wide text-brand-white mb-1.5">
+                    {reel.title}
+                  </h3>
+                  <p className="reel-desc text-xs text-white/70 leading-relaxed line-clamp-2 m-0">
+                    {reel.description}
+                  </p>
                 </div>
               </div>
             </button>
@@ -175,7 +202,7 @@ export default function ReelsCarousel() {
       {/* Video Popup Modal */}
       <dialog
         ref={dialogRef}
-        className="reel-modal fixed inset-0 m-auto w-[min(440px,94vw)] h-fit max-h-[92svh] p-0 bg-[#0d0d0d] text-brand-white border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-[100] backdrop:bg-black/85 backdrop:backdrop-blur-md"
+        className="reel-modal fixed inset-0 m-auto w-[min(440px,94vw)] h-fit max-h-[92svh] p-0 bg-[#0d0d0d] text-brand-white border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-100 backdrop:bg-black/85 backdrop:backdrop-blur-md"
         onClose={() => setActiveReel(null)}
         onClick={(e) => {
           if (e.target === e.currentTarget) setActiveReel(null);
@@ -215,11 +242,20 @@ export default function ReelsCarousel() {
             </div>
 
             {/* Modal Video Frame */}
-            <div className="reel-frame-wrap relative w-full aspect-[9/16] max-h-[calc(94svh-4.5rem)] bg-black flex items-center justify-center overflow-hidden">
+            <div className="reel-frame-wrap relative w-full aspect-9/16 max-h-[calc(94svh-4.5rem)] bg-black flex items-center justify-center overflow-hidden">
               {!iframeLoaded && (
                 <div className="reel-skeleton absolute inset-0 flex flex-col items-center justify-center gap-4 text-white/70 bg-[#0a0a0a]" aria-hidden="true">
-                  <div className="spinner w-8 h-8 rounded-full border-2 border-white/20 border-t-brand-yellow animate-spin" />
-                  <span className="font-label text-xs uppercase tracking-wider">Loading Reel from Instagram...</span>
+                  {activeReel.thumbnail && (
+                    <Image
+                      src={activeReel.thumbnail}
+                      alt={activeReel.title}
+                      fill
+                      sizes="440px"
+                      className="w-full h-full object-cover opacity-35 blur-sm"
+                    />
+                  )}
+                  <div className="spinner w-8 h-8 rounded-full border-2 border-white/20 border-t-brand-yellow animate-spin z-10" />
+                  <span className="font-label text-xs uppercase tracking-wider z-10">Loading Reel from Instagram...</span>
                 </div>
               )}
               {activeShortcode ? (
